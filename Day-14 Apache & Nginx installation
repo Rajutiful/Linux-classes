@@ -1,0 +1,65 @@
+
+################ APACHE installation ##########################################
+
+
+First we have login to the instance as root a user
+## if you want to check weather Apache [httpd] installed (or) not
+     service httpd status 
+## if you want to check weather nginx installed (or) not
+     service nginx status
+## install apache server
+     apt install httpd -y
+     service httpd start
+## we have to enable httpd port:80 on security groups
+cd /var/www/html/
+pwd
+vi index.html
+[we have to copy the code on the file]
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>My First Heading</h1>
+
+<p>My first paragraph.</p>
+
+</body>
+</html>
+ls>>>>index.html
+## if you go to the browser take instance ip and enter it will show web page
+## apache configuration file location >>>>>>> /etc/httpd/conf/httpd.conf
+## actually in this file apache will listen port it show in which port it is listening we can edit and modifying by
+vi  /etc/httpd/conf/httpd.conf
+## listen 8080 (or) 9090 
+## we have to restart the service
+service httpd restart
+## whatever port you can specify based on it you have to open port on security group on instance
+## then your apache webserver will work
+
+
+
+##################################### verify the logs #########################
+
+cd /var/log/httpd/
+ls
+access_log       error_log
+
+
+
+
+
+################################### NGINX installation ######################################################
+
+
+apt install nginx 
+service nginx status
+service nginx start
+cd /usr/share/nginx/html/
+ls
+vi index.html
+we can write our own content in this index.html file it will serve the page
+
+
+
+
+
